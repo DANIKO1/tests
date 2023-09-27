@@ -1,13 +1,13 @@
 package com.crud.tasks.domain;
 
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 
 @NoArgsConstructor
@@ -15,6 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Entity(name = "tasks")
 public class Task {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue
     private Long id;
@@ -23,4 +24,8 @@ public class Task {
     private String title;
     @Column(name = "description")
     private String content;
+
+    public Long getId() {
+        return id;
+    }
 }
